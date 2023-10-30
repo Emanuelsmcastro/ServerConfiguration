@@ -1,3 +1,15 @@
+resilience4j.circuitbreaker:
+  instances:
+    hr-worker:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 5
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+
 secret:
   token:
     secret-key: ${SECRET_KEY:c2VjcmV0LWtleS1hdXRoZW50aWNhdGlvbi1zdGF0ZWxlc3Mtc3RhdGVmdWw=}
