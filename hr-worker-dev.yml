@@ -1,5 +1,23 @@
-test:
-  config: Dev profile
+spring:
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # Default is none
+    show-sql: true # Debug sql queries
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+      
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
 app:
   token:
     secret-key: ${SECRET_KEY:c2VjcmV0LWtleS1hdXRoZW50aWNhdGlvbi1zdGF0ZWxlc3Mtc3RhdGVmdWw=}
